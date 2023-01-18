@@ -29,11 +29,12 @@ class UserGateway{
     }
     public function create(array $data):string{
 
-        $sql = "INSERT INTO user(name, size, is_available) VALUES (:name, :size,:is_available)";
+        $hashedPasswd = password_hash($data["password"],PASSWORD_DEFAULT);
+        $sql = "INSERT INTO user(email,name, password) VALUES (:email, :name,:password)";
         $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":email",$data["email"], PDO::PARAM_STR);
         $stmt->bindValue(":name",$data["name"], PDO::PARAM_STR);
-        $stmt->bindValue(":size",$data["size"] ?? 0, PDO::PARAM_INT);
-        $stmt->bindValue(":is_available", (bool)$data["is_available"] ?? false, PDO::PARAM_BOOL);
+        $stmt->bindValue(":password", $hashedPasswd, PDO::PARAM_STR);
         
         $stmt->execute();
         return $this->conn->lastInsertId();

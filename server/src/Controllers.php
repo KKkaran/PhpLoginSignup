@@ -21,10 +21,9 @@ class Controllers{
                 break;
             case "POST":
                 $data = (array)json_decode(file_get_contents("php://input",true));
-                // var_dump($data);
                 $id = $this->gateway->create($data);
                 echo json_encode([
-                    "message"=>"Product Created",
+                    "message"=>"User Created",
                     "id"=>$id
                 ]);
                 break;

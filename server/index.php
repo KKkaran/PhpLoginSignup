@@ -14,7 +14,7 @@ if($parts[2] != "server"){
 }
 
 $id = $parts[3] ?? null;
-$database = new Database("localhost","product_info", "root", "karansodhi");
+$database = new Database("localhost","family", "root", "karansodhi");
 $gateway = new UserGateway($database);
 
 $controller = new Controllers($gateway);

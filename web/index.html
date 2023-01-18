@@ -16,15 +16,15 @@
             <form class="">
                 <div>
                     <label for="email">email</label>
-                    <input type="email" id="email" ng-model="mp.email" class="m-1" placeholder="email" ng-required="true" novalidate><br>
+                    <input type="email" autocomplete="email" id="email" ng-model="mp.email" class="m-1" placeholder="email" ng-required="true" novalidate><br>
                 </div>
                 <div>
                     <label for="password">pass</label>
-                    <input type="password" id="password" ng-model="mp.password" class="m-1" placeholder="password" ng-required="true"><br>
+                    <input type="password" autocomplete="current-password" id="password" ng-model="mp.password" class="m-1" placeholder="password" ng-required="true"><br>
                 </div>
                 <div>
                     <label for="name">name</label>
-                    <input type="text" id="name" ng-model="mp.name" class="m-1" placeholder="name" ng-required="true"><br>
+                    <input type="text" id="name" autocomplete="name" ng-model="mp.name" class="m-1" placeholder="name" ng-required="true"><br>
                 </div>
                 <button type="submit" ng-click="mp.submit()" class="m-1" value="">Submit</button>
             </form>
